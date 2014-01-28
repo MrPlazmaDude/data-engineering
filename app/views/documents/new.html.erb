@@ -1,0 +1,10 @@
+<%= "Gross revenue from last file: #{number_to_currency(@gross[:last])}" if @gross %><br/>
+<%= "Total Gross revenue from all files: #{number_to_currency(@gross[:total])}" if @gross %>
+
+<%= form_tag '/documents', multipart: true do %>
+
+    <%= label_tag 'Tab Seperated File:' %>
+    <%= file_field_tag :tsv_file, accept: 'text/tab' %><br/>
+    <%= submit_tag :parse_file %>
+
+<% end %>
